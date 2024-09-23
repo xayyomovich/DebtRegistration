@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer List</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'registration/css/style.css' %}">
+</head>
+<body>
+    <h2>Customer List</h2>
+    <ul>
+        {% for customer in customers %}
+            <li>
+                {{ customer.first_name }} {{ customer.last_name }} - {{ customer.cost }}
+                <a href="{% url 'customer_edit' customer.pk %}">Edit</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'customer_create' %}">Add New Customer</a>
+</body>
+</html>
+
+
